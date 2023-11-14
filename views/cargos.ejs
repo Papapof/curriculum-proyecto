@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Cargo</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Información del Cargo: <%= cargo.CargoName %></h1>
+
+    <h2>Datos del Cargo</h2>
+    <ul>
+        <li><strong>Nombre del Cargo:</strong> <%= cargo.CargoName %></li>
+        <li><strong>Cargo Sub:</strong> <%= cargo.CargoSub %></li>
+        <li><strong>Modalidad:</strong> <%= cargo.modalidad %></li>
+        <li><strong>Horario:</strong> <%= cargo.horario %></li>
+        <li><strong>Vacantes:</strong> <%= cargo.vacantes %></li>
+        <li><strong>Renta:</strong> <%= cargo.renta %></li>
+    </ul>
+
+    <h2>Currículos Asociados (Ordenados por Idoneidad)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Idoneidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% curriculums.forEach(curriculum => { %>
+                <tr>
+                    <td><%= curriculum.nombre %></td>
+                    <td><%= curriculum.telefono %></td>
+                    <td><%= curriculum.email %></td>
+                    <td><%= curriculum.idoneidad %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <a href="/">Volver a la página principal</a>
+</body>
+</html>

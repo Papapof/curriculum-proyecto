@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Cargo</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class = "form-container">
+        <h2>Insertar Cargo</h2>
+        <form action="/admin" method="post">
+            <div class = "form-group">
+                <label for="CargoName">Cargo:</label>
+                <input type="text" id="CargoName" placeholder="Ingresa un cargo" name="CargoName" required>
+            </div>
+            <div class = "form-group">
+                <label for="CargoSub">Descripcion:</label>
+                <input type="text" id="CargoSub" placeholder="Descripción del cargo" name="CargoSub" required>
+            </div>
+            <div class = "form-group">
+                <label for="modalidad">Modalidad:</label>
+                <select id="modalidad" name="modalidad">
+                    <option value="Presencial">Modalidad Presencial</option>
+                    <option value="Hibrido">Modalidad Hibrida</option>
+                    <option value="Remota">Modalidad Remota</option>
+                </select><br>
+            </div>
+            <div class = "form-group">
+                <label for="horario">Carga Horaria: </label>
+                <select id="horario" name="horario">
+                    <option value="Full Time">Tiempo Completo</option>
+                    <option value="Part Time">Part Time</option>
+                </select><br>
+            </div>
+            <div class = "form-group">
+                <label for="vacantes">Cantidad de vacantes:</label>
+                <input type="number" id="vacantes" name="vacantes" required>
+            </div>
+            <div class = "form-group">
+                <label for="renta">Renta:</label>
+                <input type="number" id="renta" name="renta" required>
+            </div>
+            <button type="submit">Guardar</button>
+        </form>
+        <h2>Lista de Cargos</h2>
+
+        <!-- Mostrar la lista de cargos en una tabla -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Cargo</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cargos.forEach(cargo => { %>
+                    <tr>
+                        <td><%= cargo.CargoName %></td>
+                        <td><%= cargo.CargoSub %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+</div>
+</body>
+</html>
